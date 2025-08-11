@@ -1,2 +1,2 @@
-# bandog-extensions-
+# bandog extensions
 bandog.pet extensions 
