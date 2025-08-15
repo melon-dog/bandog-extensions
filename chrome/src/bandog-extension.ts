@@ -43,7 +43,22 @@ function genBandogImage(title: string) {
     const bandogImage = document.createElement('img');
     bandogImage.src = "https://bandog.pet/png/logo-white.png";
     bandogImage.style.objectFit = "contain";
+    bandogImage.style.margin = "auto"
     bandogImage.title = title;
+    bandogImage.style.transition = "0.5s";
+    bandogImage.style.opacity = "0.5";
+    bandogImage.style.filter = "drop-shadow( 0px 0px 0px rgba(255, 255, 255, 1))";
+
+    bandogImage.onmouseover = () => {
+        bandogImage.style.filter = "drop-shadow( 0px 0px 10px rgba(255, 255, 255, 1))";
+        bandogImage.style.opacity = "1";
+    };
+
+    bandogImage.onmouseleave = () => {
+        bandogImage.style.filter = "drop-shadow( 0px 0px 0px rgba(255, 255, 255, 1))";
+        bandogImage.style.opacity = "0.5";
+    };
+
     return bandogImage;
 }
 
@@ -58,30 +73,30 @@ function addBandogButton() {
         if (xUser == null) { return; }
 
         // Generate button.
-        const purpleButton = document.createElement('button');
-        purpleButton.className = 'bandog-button';
-        purpleButton.style.background = "none";
-        purpleButton.style.border = "none";
-        purpleButton.style.marginRight = "18px";
-        purpleButton.style.cursor = "pointer";
-        purpleButton.style.padding = "0";
-        purpleButton.style.width = "16px";
-        purpleButton.style.height = "20px";
-        purpleButton.appendChild(genBandogImage(`Scan @${xUser} on Bandog!`))
-        purpleButton.style.display = "none";
+        const dogButton = document.createElement('button');
+        dogButton.className = 'bandog-button';
+        dogButton.style.background = "none";
+        dogButton.style.border = "none";
+        dogButton.style.marginRight = "18px";
+        dogButton.style.cursor = "pointer";
+        dogButton.style.padding = "0";
+        dogButton.style.width = "16px";
+        dogButton.style.height = "100%";
+        dogButton.appendChild(genBandogImage(`Scan @${xUser} on Bandog!`))
+        dogButton.style.display = "none";
 
         // Insert.
-        bookmarkButton?.parentElement.insertBefore(purpleButton, bookmarkButton);
+        bookmarkButton?.parentElement.insertBefore(dogButton, bookmarkButton);
 
         if (xUserCache.has(xUser)) {
-            activeBandogButton(purpleButton, xUserCache.get(xUser));
+            activeBandogButton(dogButton, xUserCache.get(xUser));
         } else {
             objkt.GetXUserTezosAddresses(xUser).then(x => x)
                 .then((addresses) => {
                     if (!xUserCache.has(xUser)) {
                         xUserCache.set(xUser, addresses);
                     }
-                    activeBandogButton(purpleButton, addresses);
+                    activeBandogButton(dogButton, addresses);
                 });
         }
     });
