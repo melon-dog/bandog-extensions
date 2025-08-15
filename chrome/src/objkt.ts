@@ -2,7 +2,7 @@ import RateKeeper from "rate-keeper";
 
 const objktEndPoint: string = Object.freeze("https://data.objkt.com/v3/graphql");
 const RATE_LIMIT_ID = 21337;
-const RATE_LIMIT = 600;
+const RATE_LIMIT = 500;
 
 interface IUserInfo {
     alias: string
