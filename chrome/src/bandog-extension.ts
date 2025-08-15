@@ -31,10 +31,8 @@ function getXUsername(bookmarkButton: Element) {
 function activeBandogButton(button: HTMLElement, addresses: string[] | undefined) {
     if ((addresses?.length ?? 0) > 0) {
         button.style.display = "flex";
-
-        // On Click.
         button.addEventListener('click', () => {
-            window.open(`https://bandog.pet/scanner/${addresses![0]}`);
+            addresses?.forEach(address => window.open(`https://bandog.pet/scanner/${address}`));
         });
     }
 }
