@@ -1,6 +1,6 @@
 {
   "name": "bandog-extension",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/bandog-extension.js",
   "types": "dist/bandog-extension.d.ts",
   "scripts": {
