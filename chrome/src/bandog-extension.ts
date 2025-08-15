@@ -6,8 +6,20 @@ function getXUsername(bookmarkButton: Element) {
     const tweetContainer = bookmarkButton.closest('[data-testid="tweet"]');
     if (!tweetContainer) { return null; }
 
-    const originalUserLink = tweetContainer.querySelector('a[href^="/"][role="link"]');
+    // Primero buscar si es un retweet mirando el elemento con data-testid="socialContext"
+    const retweetContext = tweetContainer.querySelector('[data-testid="socialContext"]');
 
+    // Si es retweet, buscar el link del usuario original dentro del contenedor del tweet
+    if (retweetContext) {
+        const originalUserLink = tweetContainer.querySelector('div[data-testid="User-Name"] a[role="link"]');
+        if (originalUserLink) {
+            const originalUsername = originalUserLink.getAttribute('href')?.slice(1);
+            return originalUsername || null;
+        }
+    }
+
+    // Si no es retweet, buscar el primer link de usuario como antes
+    const originalUserLink = tweetContainer.querySelector('a[href^="/"][role="link"]');
     if (originalUserLink) {
         const originalUsername = originalUserLink.getAttribute('href')?.slice(1);
         return originalUsername || null;
