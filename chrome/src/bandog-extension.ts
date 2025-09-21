@@ -41,7 +41,7 @@ function genBandogImage(title: string) {
     const bandogImage = document.createElement('img');
     bandogImage.src = "https://bandog.pet/png/logo-white.png";
     bandogImage.style.objectFit = "contain";
-    bandogImage.style.width = "16px";
+    bandogImage.style.width = "100%";
     bandogImage.style.height = "auto";
     bandogImage.style.margin = "auto"
     bandogImage.title = title;
