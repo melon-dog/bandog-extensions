@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "bandog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bandog Extension",
   "icons": {
     "16": "bandog-logo-white.png",
