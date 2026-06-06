@@ -22,7 +22,7 @@
     "esbuild": "^0.25.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.8"
   },
   "description": "Bandog Extensions",
   "homepage": "https://github.com/melon-dog/bandog-extensions/blob/main/README.md",
