@@ -19,7 +19,7 @@
     "src"
   ],
   "devDependencies": {
-    "esbuild": "^0.25.9",
+    "esbuild": "^0.28.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "vitest": "^4.1.8"
